@@ -1,0 +1,7 @@
+<div class='sidemenu span4' data-spy="affix" data-offset-top="20">
+  <ul class="nav nav-tabs nav-stacked" >
+    <% topics.each do |t| %>
+      <li><a href='#<%= t.slug %>'><%= t.title %></a></li>
+    <% end %>
+  </ul>
+</div>

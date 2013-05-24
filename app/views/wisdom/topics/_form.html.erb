@@ -1,0 +1,25 @@
+<%= form_for topic do |f| %>
+    <div class="control-group">
+      <label class="control-label">Title</label>
+      <div class='controls'>
+        <%= f.text_field :title, class:'input-block-level' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Slug</label>
+      <div class='controls'>
+        <%= f.text_field :slug, class:'input-block-level' %>
+      </div>
+    </div>
+
+        <div class="control-group">
+      <label class="control-label">Description</label>
+      <div class='controls'>
+        <%= f.text_area :description, id: 'editor', class:'input-block-level' %>
+      </div>
+    </div>
+    <div class='controls'>
+      <%= f.submit 'Save', class:'btn' %>
+    </div>
+  <% end %>

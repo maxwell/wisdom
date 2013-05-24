@@ -1,0 +1,13 @@
+<h2><%= @topic.title %></h2>
+
+
+<ul class='unstyled sortable' data-url="<%= reorder_topic_questions_path(@topic)%>">
+  <% @topic.questions.each do |q| %>
+    <li class='sortableItem' data-item-id="<%= q.id %>">
+      <i class='icon-align-justify icon-reorder'></i> 
+      <%= q.title %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add a question', new_topic_question_path(@topic)%>

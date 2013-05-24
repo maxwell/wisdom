@@ -1,0 +1,13 @@
+<h1>Manage your Wisdom</h1>
+
+
+<h3> Reorder </h3>
+<ul class='unstyled sortable' data-url="<%= reorder_topics_path %>">
+  <% @topics.each do |t| %>
+    <li class='sortableItem' data-item-id="<%= t.id %>">
+      <i class='icon-align-justify icon-reorder'></i> 
+      <%= link_to t.title, topic_path(t) %> | <%= edit_topic_link(t)%> | <%=new_question_link(t)  %>
+    </li>
+  <% end %>
+</ul>
+<%= new_topic_link %>

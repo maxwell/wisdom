@@ -1,0 +1,57 @@
+@import "bootstrap";
+@import 'bootstrap-wysihtml5';
+.wisdom{
+  #filter{
+    margin:10px 0;
+  }
+  legend{
+    font-size: 24px;
+
+  }
+
+  .question{
+    padding:10px;
+    font-size:larger;
+    h4{
+      margin-bottom:10px;
+    }
+    p{
+      padding:0 10px;
+    }
+
+  }
+
+  h1{
+    padding:20px 0;
+  }
+  section{
+    margin-bottom:300px;
+  }
+
+  section#general{
+    margin-bottom:30px;
+  }
+
+  li.active{
+    a{
+      background-color:#0088cc;
+      color:white;
+      &:hover{
+       background-color:#0088cc;
+       color:white;
+      };
+    }
+  }
+
+  li{
+    padding-right: 50px;
+  }
+  .helpdoc{
+    font-size:smaller;
+    padding:5px;
+    border-top:1px  solid #ccc;
+    border-bottom:1px  solid #ccc;  
+  }
+
+}
+#editor {overflow:scroll; max-height:300px}

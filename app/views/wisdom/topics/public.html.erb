@@ -1,0 +1,30 @@
+<h1>WISDOM</h1>
+<div class='row'>
+  <div class='span4'>
+    <%= render 'menu', topics: @topics %>
+  </div>
+
+  <div class='span8'>
+    <form class="form-search">
+      <input class='input-block-level search-query' id='filter' placeholder='Search for a question...' type='text'></input>
+    </form>
+
+    <% @topics.each do |t| %>
+      <section id="<%= t.slug %>">
+        <h2><%= t.title %> <small><%= edit_topic_link(t) %></small></h2>
+        <p><%= simple_format t.description %></p>
+
+        <% t.questions.each do |q| %>
+          <div class='question'>
+            <h4><%= q.title %> <small> <%= edit_question_link(t, q)%></small></h4>
+            <%= simple_format(q.text) %>
+
+          </div>
+        <% end %>
+
+      </section>
+    <% end %>
+    <%= link_to("manage", topics_path) if can_edit? %>
+  </div>
+</div>
+
