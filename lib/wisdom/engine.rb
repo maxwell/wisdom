@@ -13,5 +13,18 @@ module Wisdom
       g.assets false
       g.helper false
     end
+
+    config.current_user_method = lambda{current_user}
+    config.admin_method = :is_staff?
+    config.contact_email = ''
+    config.site_title = "Widsom"
+
+  end
+
+
+
+  def self.config(&block)
+    yield Engine.config if block
+    Engine.config
   end
 end

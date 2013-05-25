@@ -1,5 +1,24 @@
-<div class='span12'>
+<div class='row'>
+
   <h2>Editing <%= @topic.title %> </h2>
+<div class='span8'>
 
   <%= render 'form', topic:@topic %>
+</div>
+
+<div class='span4'>
+  <h4><%= @topic.questions.count%> questions </h4>
+  <ul class='unstyled sortable' data-url="<%= reorder_topic_questions_path(@topic)%>">
+    <% @topic.questions.each do |q| %>
+      <li class='sortableItem' data-item-id="<%= q.id %>">
+        <i class='icon-align-justify icon-reorder'></i> 
+        <%= q.title %> | <%= link_to 'edit', edit_topic_question_path(@topic, q)%> | 
+        <%= link_to 'delete', topic_question_path(@topic, q), method: :delete , data:{confirm: 'You sure?'} %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to 'Add a question', new_topic_question_path(@topic)%>
+
+</div>
 </div>

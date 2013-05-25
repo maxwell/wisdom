@@ -25,12 +25,24 @@ module Wisdom
     def update
       @topic = Wisdom::Topic.find(params[:id])
       @topic.update_attributes(params[:topic])
-      redirect_to action: :index
+
+      if @topic.errors.any?
+        flash[:error] = @topic.errors.full_messages.join(', ')
+        render 'edit' 
+      else
+        redirect_to action: :index, notice: "Topic Updated"
+      end
     end
 
     def create
       @topic = Wisdom::Topic.create(params[:topic])
-      redirect_to action: :index
+
+      if @topic.errors.any?
+        flash[:error] = @topic.errors.full_messages.join(', ')
+        render 'new' 
+      else
+        redirect_to action: :edit, notice: "Topic Created"
+      end
     end
 
     def reorder

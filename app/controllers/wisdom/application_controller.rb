@@ -4,7 +4,13 @@ module Wisdom
 
 
     def can_edit?
-      true
+      user =  begin
+                Wisdom.config.current_user_method.call()
+            rescue
+              nil
+            end
+        user.try(Wisdom.config.admin_method)
+        true
     end
 
 

@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Wisdom</title>
+  <title><%= Wisdom.config.site_title %></title>
   <%= stylesheet_link_tag    "wisdom/application", :media => "all" %>
   <%= javascript_include_tag "wisdom/application" %>
   <%= csrf_meta_tags %>
 </head>
 <body data-spy="scroll" data-target=".sidemenu" data-offset='20'>
   <div class='container wisdom'>
+
+    <div class='flash clearfix' >
+      <% flash.each do |name, msg| %>
+      <div style='padding:25px'>
+        <div class="alert alert-<%= name == :notice ? "success" : "error" %>" >
+          <a class="close" data-dismiss="alert">x</a>
+          <%= msg  %>
+        </div>
+      </div>
+      <% end %>
+    </div>
 
   <%= yield %>
 

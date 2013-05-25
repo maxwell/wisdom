@@ -6,5 +6,10 @@ module Wisdom
 
     include RankedModel
     ranks :row_order
+
+    validates :description, presence: true
+    validates :title, presence: true
+    validates :slug, presence: true, uniqueness: true
+ 
   end
 end

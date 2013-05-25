@@ -1,12 +1,12 @@
-<h1>Manage your Wisdom<small><%= link_to ' see your site ->', root_url%></small></h1>
+<h1>Manage <%= Wisdom.config.site_title %><small><%= link_to ' see your site ->', root_url%></small></h1>
 
 
-<h3> Reorder </h3>
+<h3> All Topics <small>(drag to reorder)</small> </h3>
 <ul class='unstyled sortable' data-url="<%= reorder_topics_path %>">
   <% @topics.each do |t| %>
     <li class='sortableItem' data-item-id="<%= t.id %>">
       <i class='icon-align-justify icon-reorder'></i> 
-      <%= link_to t.title, topic_path(t) %> | <%= edit_topic_link(t)%> | <%=new_question_link(t)  %>
+      <%= t.title%> | <%= edit_topic_link(t)%> | <%=new_question_link(t)  %>
     </li>
   <% end %>
 </ul>
