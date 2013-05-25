@@ -5,7 +5,7 @@ This (will be) a Rails engine to make it really easy to make a simple, searchabl
 
 WHY?
 
-One day I got really angry that this code didn't exsist.  Yes it is really easy, but no one should ever have to write this again.
+One day I got really angry that this code didn't exist.  Yes it is really easy, but no one should ever have to write this again.
 
 steps.
 1. include gem
