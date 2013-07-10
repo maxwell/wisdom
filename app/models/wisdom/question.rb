@@ -8,9 +8,5 @@ module Wisdom
 
     validates :text, :presence => true
     validates :title, :presence => true
-    before_save do
-      self.slug = slug.downcase.parameterize
-    end
-    
   end
 end
