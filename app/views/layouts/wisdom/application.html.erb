@@ -3,6 +3,9 @@
 <head>
   <title><%= Wisdom.config.site_title %></title>
   <%= stylesheet_link_tag    "wisdom/application", :media => "all" %>
+
+  <%= yield :head %>
+
   <%= javascript_include_tag "wisdom/application" %>
   <%= csrf_meta_tags %>
 </head>

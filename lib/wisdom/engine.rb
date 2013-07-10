@@ -17,7 +17,8 @@ module Wisdom
     config.current_user_method = lambda{current_user}
     config.admin_method = :is_staff?
     config.contact_email = ''
-    config.site_title = "Widsom"
+    config.site_title = 'Wisdom'
+    config.stylesheet_paths = []
 
   end
 
