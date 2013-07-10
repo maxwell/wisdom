@@ -19,5 +19,11 @@ module Wisdom
       return unless can_edit?
       link_to 'new topic', new_topic_path, opts
     end
+    
+    def format_html(raw_html)
+      raise raw_html.inspect
+      simple_format(auto_link(raw_html), sanitize: false)
+    end
+  
   end
 end
