@@ -21,7 +21,6 @@ module Wisdom
     end
     
     def format_html(raw_html)
-      raise raw_html.inspect
       simple_format(auto_link(raw_html), sanitize: false)
     end
   
