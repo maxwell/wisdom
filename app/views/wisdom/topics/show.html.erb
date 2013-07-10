@@ -1,6 +1,5 @@
 <div class ='row'>
   <div class='span8'>
-    <%= link_to 'Add a question', new_topic_question_path(@topic)%> | <%= link_to 'All Topics', topics_path %> | <%= link_to "Public Site", root_url %>
     <%= render 'topic', topic: @topic %>
   </div>
   <div class='span4'>

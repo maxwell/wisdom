@@ -11,6 +11,23 @@
 </head>
 <body data-spy="scroll" data-target=".sidemenu" data-offset='20'>
   <div class='container wisdom'>
+    <% if can_edit? %>
+      <%= link_to_unless_current 'Public Site', root_url %> |
+      <%= link_to_unless_current 'Manage', topics_url %> |
+      <%= link_to_unless_current 'New Topic', new_topic_url %> 
+
+      <% if @topic.present? && @topic.persisted? %>
+        | <%= link_to_unless_current(@topic.title, topic_url(@topic)) %> |
+        <%= link_to_unless_current("Edit #{@topic.title}", edit_topic_url(@topic)) %> |
+        <%= link_to 'Add a question', new_topic_question_path(@topic)%>
+
+      <% end %>
+
+      <% if @question.present? && @question.persisted? %>
+        | <%= link_to_unless_current(@question.title, topic_question_url(@question))%> |
+        <%= link_to_unless_current("Edit #{@question.title}", edit_topic_question_url(@question))%>
+      <% end %>
+    <% end %>
 
     <div class='flash clearfix' >
       <% flash.each do |name, msg| %>
