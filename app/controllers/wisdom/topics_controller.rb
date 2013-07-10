@@ -1,5 +1,6 @@
 module Wisdom
   class TopicsController < Wisdom::ApplicationController
+
     before_filter :require_admin!, except: [:public]
 
     def public
@@ -28,10 +29,17 @@ module Wisdom
 
       if @topic.errors.any?
         flash[:error] = @topic.errors.full_messages.join(', ')
-        render 'edit' 
+        render 'edit'
       else
         redirect_to action: :index, notice: "Topic Updated"
       end
+    end
+
+    def destroy
+      @topic = Wisdom::Topic.find(params[:id])
+      @topic.destroy
+
+      redirect_to action: :index, notice: "Topic Deleted"
     end
 
     def create
@@ -41,7 +49,7 @@ module Wisdom
         flash[:error] = @topic.errors.full_messages.join(', ')
         render 'new' 
       else
-        redirect_to action: :edit, notice: "Topic Created"
+        redirect_to action: :index, notice: "Topic Created"
       end
     end
 

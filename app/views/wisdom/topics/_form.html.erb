@@ -13,12 +13,17 @@
       </div>
     </div>
 
-        <div class="control-group">
+    <div class="control-group">
       <label class="control-label">Description</label>
       <div class='controls'>
         <%= f.text_area :description, id: 'editor', class:'input-block-level' %>
       </div>
     </div>
+
+    <div class="control-group">
+      Delete Topic? <%= check_box_tag '_method', 'delete' %>
+    </div>
+
     <div class='controls'>
       <%= f.submit 'Save', class:'btn' %>
     </div>
