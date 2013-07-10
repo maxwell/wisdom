@@ -7,11 +7,11 @@ require "wisdom/version"
 Gem::Specification.new do |s|
   s.name        = "wisdom"
   s.version     = Wisdom::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Wisdom."
-  s.description = "TODO: Description of Wisdom."
+  s.authors     = ["Maxwell Salzberg"]
+  s.email       = ["maxwell@backerkit.com"]
+  s.homepage    = "https://github.com/maxwell/backerkit"
+  s.summary     = "A great Gem"
+  s.description = "cool story bro"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
 
