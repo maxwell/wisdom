@@ -3,6 +3,11 @@
 <head>
   <title><%= Wisdom.config.site_title %></title>
   <%= stylesheet_link_tag    "wisdom/application", :media => "all" %>
+
+  <% Wisdom.config.stylesheet_paths.each do |path| %>
+    <%= stylesheet_link_tag path, :media => "all" %>
+  <% end %>
+
   <%= javascript_include_tag "wisdom/application" %>
   <%= csrf_meta_tags %>
 </head>
