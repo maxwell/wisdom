@@ -1,3 +1,9 @@
+<% content_for :head do %>
+  <% Wisdom.config.stylesheet_paths.each do |path| %>
+    <%= stylesheet_link_tag path, :media => "all" %>
+  <% end %>
+<% end %>
+
 <div class='row clearfix'>
   <div class='span8 offset4'>
     <h1><%= Wisdom.config.site_title %></h1>
