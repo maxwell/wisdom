@@ -18,8 +18,8 @@ module Wisdom
     end
 
     def create
-      @topic = @topic.questions.create(params[:question])
-      respond_with @topic
+      @question = @topic.questions.create(params[:question])
+      respond_with @topic, @question
     end
 
     def edit
