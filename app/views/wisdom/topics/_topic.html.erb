@@ -1,0 +1,15 @@
+<section class='clearfix' id="<%= topic.slug %>">
+  <h2><%= topic.title %> <small><%= edit_topic_link(topic) %></small></h2>
+  <p><%= format_html topic.description %></p>
+
+  <% topic.questions.each do |q| %>
+  <%= render 'wisdom/questions/question', question:q, topic:topic %>
+  <% end %>
+
+  <% if Wisdom.config.contact_email.present? %>
+  <div class='helpdoc'>
+    Did this help?
+    <p class='muted'>If not, email us: <%= mail_to Wisdom.config.contact_email, Wisdom.config.contact_email, target:'_blank'%></p>
+  </div>
+  <% end %>
+</section>

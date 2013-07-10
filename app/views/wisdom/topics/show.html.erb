@@ -1,13 +1,18 @@
-<h2><%= @topic.title %></h2>
-
-
-<ul class='unstyled sortable' data-url="<%= reorder_topic_questions_path(@topic)%>">
-  <% @topic.questions.each do |q| %>
-    <li class='sortableItem' data-item-id="<%= q.id %>">
-      <i class='icon-align-justify icon-reorder'></i> 
-      <%= q.title %>
-    </li>
-  <% end %>
-</ul>
-
-<%= link_to 'Add a question', new_topic_question_path(@topic)%>
+<div class ='row'>
+  <div class='span8'>
+    <%= link_to 'Add a question', new_topic_question_path(@topic)%> | <%= link_to 'All Topics', topics_path %> | <%= link_to "Public Site", root_url %>
+    <%= render 'topic', topic: @topic %>
+  </div>
+  <div class='span4'>
+    <div class='well'>
+      <ul class='unstyled sortable' data-url="<%= reorder_topic_questions_path(@topic)%>">
+        <% @topic.questions.each do |q| %>
+          <li class='sortableItem' data-item-id="<%= q.id %>">
+            <i class='icon-align-justify icon-reorder'></i> 
+            <%= q.title %>
+          </li>
+        <% end %>
+      </ul>
+    </ul>
+  </div>
+</div>

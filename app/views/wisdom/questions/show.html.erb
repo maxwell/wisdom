@@ -1,0 +1,7 @@
+<%= render 'question', question: @question, topic: @topic %>
+
+
+
+
+<%= link_to 'Topics', topics_path %> |
+<%= link_to @topic.title, topic_path(@question.topic) %>

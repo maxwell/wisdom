@@ -2,6 +2,7 @@ module Wisdom
   class TopicsController < Wisdom::ApplicationController
 
     before_filter :require_admin!, except: [:public]
+    respond_to :html
 
     def public
       @topics = Wisdom::Topic.includes(:questions).order('row_order asc').all
@@ -26,31 +27,21 @@ module Wisdom
     def update
       @topic = Wisdom::Topic.find(params[:id])
       @topic.update_attributes(params[:topic])
+      puts @topic.inspect
+      
 
-      if @topic.errors.any?
-        flash[:error] = @topic.errors.full_messages.join(', ')
-        render 'edit'
-      else
-        redirect_to action: :index, notice: "Topic Updated"
-      end
+      respond_with @topic
     end
 
     def destroy
       @topic = Wisdom::Topic.find(params[:id])
       @topic.destroy
-
-      redirect_to action: :index, notice: "Topic Deleted"
+      respond_with @topic
     end
 
     def create
       @topic = Wisdom::Topic.create(params[:topic])
-
-      if @topic.errors.any?
-        flash[:error] = @topic.errors.full_messages.join(', ')
-        render 'new' 
-      else
-        redirect_to action: :index, notice: "Topic Created"
-      end
+      respond_with @topic
     end
 
     def reorder

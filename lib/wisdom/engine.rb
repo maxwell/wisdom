@@ -6,6 +6,7 @@ module Wisdom
     require 'bootstrap-sass'
     require 'ranked-model'
     require 'bootstrap-wysihtml5-rails'
+    require 'rails_autolink'
     
     config.generators do |g|
       g.test_framework      :rspec,        :fixture => false

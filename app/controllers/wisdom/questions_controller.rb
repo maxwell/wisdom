@@ -3,6 +3,8 @@ module Wisdom
     before_filter :set_topic
     before_filter :require_admin!
 
+    respond_to :html
+
     def index
       @questions = @topic.questions
     end
@@ -11,14 +13,13 @@ module Wisdom
       @question = @topic.questions.build
     end
 
+    def show
+      @question = @topic.questions.find(params[:id])
+    end
+
     def create
       @topic = @topic.questions.create(params[:question])
-
-      if @topic.persisted?
-        redirect_to root_path
-      else
-        render 'new'
-      end
+      respond_with @topic
     end
 
     def edit
@@ -29,13 +30,7 @@ module Wisdom
       @question = @topic.questions.find(params[:id])
       @question.update_attributes(params[:question])
 
-      if @question.errors.blank?
-        redirect_to edit_topic_path(@topic), notice: 'Question updated'
-      else
-        flash[:error] = @question.errors.full_messages.join(', ')
-        render 'edit'
-      end
-
+      respond_with @topic, @question
     end
 
     def destroy

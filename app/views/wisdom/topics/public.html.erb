@@ -21,25 +21,7 @@
     </form>
 
     <% @topics.each do |t| %>
-      <section class='clearfix' id="<%= t.slug %>">
-        <h2><%= t.title %> <small><%= edit_topic_link(t) %></small></h2>
-        <p><%= format_html t.description %></p>
-
-        <% t.questions.each do |q| %>
-          <div class='question'>
-            <h4><%= q.title %> <small> <%= edit_question_link(t, q)%></small></h4>
-            <%= format_html(q.text,) %>
-
-          </div>
-        <% end %>
-
-        <% if Wisdom.config.contact_email.present? %>
-          <div class='helpdoc'>
-              Did this help?
-              <p class='muted'>If not, email us: <%= mail_to Wisdom.config.contact_email, Wisdom.config.contact_email, target:'_blank'%></p>
-          </div>
-          <% end %>
-      </section>
+      <%= render 'wisdom/topics/topic', topic: t %>
     <% end %>
 
     <%= link_to("manage", topics_path) if can_edit? %>
