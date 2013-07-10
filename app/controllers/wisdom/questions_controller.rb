@@ -1,5 +1,5 @@
 module Wisdom
-  class QuestionsController< ApplicationController
+  class QuestionsController < Wisdom::ApplicationController
     before_filter :set_topic
     before_filter :require_admin!
 

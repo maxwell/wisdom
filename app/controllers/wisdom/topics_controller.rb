@@ -1,5 +1,5 @@
 module Wisdom
-  class TopicsController< ApplicationController
+  class TopicsController < Wisdom::ApplicationController
     before_filter :require_admin!, except: [:public]
 
     def public

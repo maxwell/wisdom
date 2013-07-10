@@ -10,7 +10,6 @@ module Wisdom
               nil
             end
         user.try(Wisdom.config.admin_method)
-        true
     end
 
 
